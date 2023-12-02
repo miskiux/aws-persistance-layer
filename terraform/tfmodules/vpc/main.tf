@@ -1,18 +1,18 @@
-resource "aws_vpc" "main" {
+resource "aws_vpc" "vpc" {
   cidr_block = "10.0.0.0/16"
 
   tags = {
-    Name = "persistance-layer-vpc-net"
+    Name = "aws_vpc"
   }
 }
 
-resource "aws_subnet" "private_subnets" {
+resource "aws_subnet" "private" {
   count             = length(var.private_subnet_cidrs)
-  vpc_id            = aws_vpc.main.id
+  vpc_id            = aws_vpc.vpc.id
   cidr_block        = element(var.private_subnet_cidrs, count.index)
   availability_zone = element(var.azs, count.index)
 
   tags = {
-    Name = "Private Subnet ${count.index + 1}"
+    Name = "aws_subnet_private_${count.index + 1}"
   }
 }
