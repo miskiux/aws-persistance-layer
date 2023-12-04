@@ -1,0 +1,30 @@
+{
+  "name": "aws-persistance-layer",
+  "version": "1.0.0",
+  "description": "a little demo for handling something large that comes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "bash ./scripts/build.sh",
+    "deploy": "bash ./scripts/deploy.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miskiux/aws-persistance-layer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miskiux/aws-persistance-layer/issues"
+  },
+  "homepage": "https://github.com/miskiux/aws-persistance-layer#readme",
+  "devDependencies": {
+    "serverless": "^3.38.0",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.2",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
+}

@@ -16,3 +16,8 @@ resource "aws_subnet" "private" {
     Name = "aws_subnet_private_${count.index + 1}"
   }
 }
+
+
+resource "aws_vpc_endpoint" "gateway" {
+
+}
