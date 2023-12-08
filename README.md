@@ -12,12 +12,19 @@ It would be more optimal to dowload the data somewhere (like in a shared file sy
 
 #### Persistance layer
 
+![alt text](http://assets/aws-efs-system-design.png)
+
 
 ## Steps
 
-Deploy serverless applications
+#### Deploy shared infrastructure
+
+Run terraform
+
+#### Build and deploy app-specific infrastructure
 
 ```http
+* Run `npm run build <application name>` to build your selected application.
 * Run `npm run deploy <application name>` to deploy your selected application.
 ```
 

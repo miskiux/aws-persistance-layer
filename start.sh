@@ -9,11 +9,12 @@ if [ -z "$package" ]; then
     exit 1
 fi
 
-echo starting $package deployment;
+echo starting $package;
+
+cp ./.env ./apps/$package/.env;
 
 cd ./apps/$package;
 
-npx serverless deploy --conceal;
+npx serverless offline;
 
-echo deplyment is finished;
-
+echo started the $package;

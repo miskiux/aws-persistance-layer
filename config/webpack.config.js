@@ -5,6 +5,7 @@ module.exports = (env) => {
     return {
         entry: `./apps/${env.application_name}/src/main.ts`,
         mode: 'production',
+        target: "node",
         module: {
             rules: [
                 {
@@ -17,6 +18,7 @@ module.exports = (env) => {
                             }
                         }
                     ],
+                    exclude: /node_modules/,
                 }
             ]
         },
