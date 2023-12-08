@@ -14,16 +14,16 @@ resource "aws_efs_file_system" "efs" {
 }
 
 resource "aws_efs_mount_target" "mount_target" {
-  count          = length(var.azs)
+  count          = length(var.config.azs)
   file_system_id = aws_efs_file_system.efs.id
-  subnet_id      = var.private_subnets[count.index].id
+  subnet_id      = var.config.private_subnets[count.index].id
 }
 
 resource "aws_efs_access_point" "access_point" {
   file_system_id = aws_efs_file_system.efs.id
 
   root_directory {
-    path = "/raw-data"
+    path = var.efs_access_point
   }
 
   tags = {

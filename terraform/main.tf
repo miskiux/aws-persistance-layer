@@ -8,13 +8,18 @@ module "vpc" {
   source = "./tfmodules/vpc"
 }
 
-module "file-system" {
-  source          = "./tfmodules/file-system"
-  azs             = module.vpc.azs
-  private_subnets = module.vpc.private_subnets
-
-  depends_on = [
-    module.vpc
-  ]
+locals {
+  global_config = {
+    azs             = module.vpc.azs
+    private_subnets = module.vpc.private_subnets
+  }
 }
 
+module "backend" {
+  source = "./tfmodules/backend"
+  config = local.global_config
+
+  depends_on = [
+    module.vpc,
+  ]
+}
