@@ -1,5 +1,4 @@
 resource "aws_efs_file_system" "efs" {
-  creation_token   = "efs_token"
   performance_mode = "generalPurpose"
   throughput_mode  = "bursting"
   encrypted        = "true"
@@ -14,9 +13,10 @@ resource "aws_efs_file_system" "efs" {
 }
 
 resource "aws_efs_mount_target" "mount_target" {
-  count          = length(var.config.azs)
-  file_system_id = aws_efs_file_system.efs.id
-  subnet_id      = var.config.private_subnets[count.index].id
+  count           = length(var.config.azs)
+  file_system_id  = aws_efs_file_system.efs.id
+  subnet_id       = var.config.private_subnets[count.index].id
+  security_groups = [var.sg_id]
 }
 
 resource "aws_efs_access_point" "access_point" {
