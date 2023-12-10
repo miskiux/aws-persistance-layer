@@ -7,8 +7,7 @@ export const handler = async () => {
 }
 
 async function copyFileToEFS(inputPath: string, targetPath?: string): Promise<void> {
-    // const command = `cp ${inputPath} ${targetPath}`;
-    const command = `ls -a`;
+    const command = `cp ${inputPath} ${targetPath}`;
 
     await execPromise(command);
 }

@@ -1,0 +1,11 @@
+#!/bin/bash
+sleep 5m
+sudo su - root
+
+# Install AWS EFS Utilities
+yum install -y amazon-efs-utils
+
+# Mount EFS
+mkdir /fs
+fs_id="${fs_id}"
+mount -t efs $fs_id:/ /fs

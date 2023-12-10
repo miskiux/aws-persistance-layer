@@ -6,8 +6,8 @@ variable "sg_id" {
 
 }
 
-variable "efs_access_point" {
+variable "fs_access_point" {
   description = "Determine the access point"
   type        = string
-  default     = "/efs-access"
+  default     = "/fs-access"
 }
