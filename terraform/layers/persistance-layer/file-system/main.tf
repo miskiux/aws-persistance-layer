@@ -1,4 +1,4 @@
-resource "aws_efs_file_system" "fs" {
+resource "aws_efs_file_system" "file_system" {
   performance_mode = "generalPurpose"
   throughput_mode  = "bursting"
   encrypted        = "true"
@@ -13,17 +13,17 @@ resource "aws_efs_file_system" "fs" {
 }
 
 resource "aws_efs_mount_target" "mount_target" {
-  count           = length(var.config.azs)
-  file_system_id  = aws_efs_file_system.fs.id
-  subnet_id       = var.config.private_subnets[count.index].id
-  security_groups = [var.sg_id]
+  count           = length(var.private_subnet_ids)
+  file_system_id  = aws_efs_file_system.file_system.id
+  subnet_id       = var.private_subnet_ids[count.index]
+  security_groups = [var.allow_nfs, var.allow_all_egress]
 }
 
 resource "aws_efs_access_point" "access_point" {
-  file_system_id = aws_efs_file_system.fs.id
+  file_system_id = aws_efs_file_system.file_system.id
 
   root_directory {
-    path = var.fs_access_point
+    path = var.access_point
   }
 
   tags = {

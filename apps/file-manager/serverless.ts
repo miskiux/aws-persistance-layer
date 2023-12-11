@@ -15,14 +15,7 @@ module.exports = {
         localMountPath: "${env:AWS_EFS_LOCAL_PATH}",
         arn: "arn:aws:elasticfilesystem:eu-central-1:705628343073:access-point/fsap-04921b4c555310d76",
       },
-      events: [
-        {
-          httpApi: {
-            path: "/{proxy+}",
-            method: "GET",
-          },
-        },
-      ],
+      events: [],
     },
   },
 };
