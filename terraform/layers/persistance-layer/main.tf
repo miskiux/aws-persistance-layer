@@ -13,8 +13,7 @@ module "file-system" {
   private_subnet_ids = module.vnet.private_subnet_ids
   allow_nfs          = module.security.allow_nfs
   allow_all_egress   = module.security.allow_all_egress
-
-
+  allow_http         = module.security.allow_http
 }
 
 module "ec2" {
@@ -23,7 +22,6 @@ module "ec2" {
   file_system_id     = module.file-system.file_system_id
   allow_all_egress   = module.security.allow_all_egress
   allow_ssh          = module.security.allow_ssh
-
 
   depends_on = [module.file-system]
 }

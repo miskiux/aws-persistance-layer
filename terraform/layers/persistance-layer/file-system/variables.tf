@@ -10,6 +10,10 @@ variable "allow_all_egress" {
 
 }
 
+variable "allow_http" {
+
+}
+
 variable "access_point" {
   description = "Determine the access point"
   type        = string

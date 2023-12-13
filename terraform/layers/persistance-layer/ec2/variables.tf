@@ -10,7 +10,6 @@ variable "allow_ssh" {
 
 }
 
-
 variable "file_system_id" {
 
 }
@@ -23,7 +22,7 @@ variable "instance_type" {
 }
 
 variable "aws_ami" {
-  description = "Instance configuration"
+  description = "Amazon Linux 2 AMI 64-bit (x86)"
   type        = string
-  default     = "ami-0669b163befffbdfc"
+  default     = "ami-064e3c165b1ba0bb3"
 }
