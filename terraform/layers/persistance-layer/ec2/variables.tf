@@ -14,6 +14,10 @@ variable "file_system_id" {
 
 }
 
+variable "iam_instance_profile" {
+
+}
+
 
 variable "instance_type" {
   description = "Name of the project"

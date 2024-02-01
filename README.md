@@ -11,22 +11,22 @@ It would be more optimal to dowload the data somewhere (like in a shared file sy
 
 
 #### Persistance layer
-
-![alt text](./assets/aws-efs-system-design.png)
-
+...
 
 ## Steps
 
 #### Shared infrastructure
 
+```
 cd terraform
 terraform init
 terraform plan
 terraform apply
+```
 
 #### App-specific infrastructure
 
-```http
+```
 * Run `npm run build <application name>` to build your selected application.
 * Run `npm run deploy <application name>` to deploy your selected application.
 ```
